@@ -1,0 +1,66 @@
+body {
+  background-image: url("bg.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.navbar {
+  background-color: rgb(58, 182, 227);
+}
+.headnav {
+  color: #68439c;
+  font-family: "Cinzel", serif;
+  font-size: 30px;
+  vertical-align: middle;
+}
+.nav-link {
+  text-decoration: none;
+  color: #68439c !important;
+}
+.nav-link:hover {
+  background-color: #cbf1f5;
+  color: #68439c;
+}
+.carousel-item {
+  width: 100%;
+  height: 20rem;
+
+  margin-bottom: 50px;
+
+  /* margin-left: auto;
+  margin-right: auto; */
+}
+.mainimg2 {
+  height: 50rem;
+}
+.quote {
+  background-color: #a579e3d0;
+  border-radius: 10px;
+}
+.download {
+  /* margin-top: 50px; */
+  font-size: 20px;
+}
+.upload {
+  /* margin-top: 30px; */
+  font-size: 20px;
+}
+.nowat {
+  margin-bottom: 10px;
+  background-image: url("bg.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  text-align: center;
+}
+.photo {
+  margin-right: 50px;
+  font-size: 40px;
+}
+.uplo {
+  margin-top: 20px;
+}
+.mar {
+  margin-top: 20px;
+}

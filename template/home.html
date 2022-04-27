@@ -1,0 +1,339 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@620&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'logo.png' %}">
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+
+    <title>3Dify</title>
+
+</head>
+
+<body>
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+        <strong>Message:</strong> {{message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <form action="signup" method="post">
+                        {% csrf_token %}
+
+                        <a class="navbar-brand" href="#"><i class="fab fa-canadian-maple-leaf"></i>
+                            <!-- <i class="fas fa-cannabis"></i> -->
+                            <span class="headnav">3Dify</span></a><br>
+                        <h5 class="modal-title" id="exampleModalLabel">Register<br><br></h5>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Uname</label>
+                            <input type="text" name="uname" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Email address</label>
+                            <input type="email" name="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Password</label>
+                            <input type="password" name="pass" class="form-control" id="exampleInputPassword1" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+                            <input type="password" name="cnfpass" class="form-control" id="exampleInputPassword1"
+                                required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Signup</button>
+                    </form>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- Modal -->
+
+
+    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <form method="post" action="loginuser">
+                        {% csrf_token %}
+                        <a class="navbar-brand" href="#"><i class="fab fa-canadian-maple-leaf"></i>
+                            <!-- <i class="fas fa-cannabis"></i> -->
+                            <span class="headnav">3Dify</span></a><br>
+                        <h5 class="modal-title" id="exampleModalLabel">Login<br><br></h5>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Username</label>
+                            <input type="text" name="uname" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" required>
+                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Password</label>
+                            <input type="password" name="passw" class="form-control" id="exampleInputPassword1"
+                                required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class=" container-fluid">
+            <img src="{% static 'logo.png' %}" alt="" width="70" height="50" class="d-inline-block ">
+            <span class="headnav">3Dify</span>
+            <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'home' %}">Home</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <!-- Example single danger button -->
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            {{user}}
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{% url 'dashboard' %}">Dashboard</a>
+                            <a class="dropdown-item" href="{% url 'logoutuser' %}">Logout</a>
+
+                        </div>
+                    </div>
+
+
+                    {% else %}
+                    <li class="nav-item">
+                        <a data-bs-toggle="modal" data-bs-target="#exampleModal1" class="nav-link" href="#">Log in</a>
+                    </li>
+                    <li class="nav-item">
+                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" class="nav-link" href="#">Sign up</a>
+                    </li>
+                    {% endif %}
+
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'aboutus' %}">About us</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        </div>
+    </nav>
+    <!--  -->
+    <section>
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static 'car7.jpg' %} " class="d-block w-100 mainimg1 " alt="...">
+                    <!-- Photo by <a href="https://unsplash.com/@impulsq?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Online Marketing</a> on <a href="https://unsplash.com/s/photos/doctor?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+       -->
+                    <div class="carousel-caption  d-md-block">
+                        <figure class="text-center">
+                            <div class="quote">
+                                <blockquote class="blockquote">
+                                    <p>“What makes photography a strange invention is that its primary raw
+                                        materials are
+                                        time and light.”</p>
+                                </blockquote>
+                                <figcaption class="blockquote-footer ">
+                                    <b><cite title="Source Title">John Berger</cite></b>
+                                </figcaption>
+                            </div>
+
+
+                        </figure>
+
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'car6.jpg' %}" class="d-block w-100 mainimg2 " alt="...">
+                    <!-- Photo by <a href="https://unsplash.com/@cdc?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">CDC</a> on <a href="https://unsplash.com/s/photos/vaccine?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+       -->
+
+                    <div class="carousel-caption  d-md-block">
+                        <figure class="text-center">
+                            <div class="quote">
+                                <blockquote class="blockquote">
+                                    <p>“Photography is a way of feeling, of touching, of loving. What you
+                                        have
+                                        caught on
+                                        film is captured forever… It remembers little things, long after you have
+                                        forgotten
+                                        everything.”</p>
+                                </blockquote>
+                                <figcaption class="blockquote-footer ">
+                                    <b><cite title="Source Title">Aaron Siskind</cite></b>
+                                </figcaption>
+                            </div>
+
+                        </figure>
+
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'car69.jpg' %}" class="d-block w-100 mainimg2 " alt="...">
+                    <!-- Photo by <a href="https://unsplash.com/@cdc?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">CDC</a> on <a href="https://unsplash.com/s/photos/vaccine?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+       -->
+
+                    <div class="carousel-caption  d-md-block">
+                        <figure class="text-center">
+                            <div class="quote">
+                                <blockquote class="blockquote">
+                                    <p>“Photography is pretty simple stuff. You just react to what you see, and take
+                                        many, many pictures.”</p>
+                                </blockquote>
+                                <figcaption class="blockquote-footer ">
+                                    <b><cite title="Source Title">Elliott Erwitt</cite></b>
+                                </figcaption>
+                            </div>
+
+                        </figure>
+
+                    </div>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+    </section>
+    <!--  -->
+    <!-- <h1>Get the 3D Model</h1> -->
+
+    <!-- <h2>{{error}}</h2> -->
+    {% if user.is_authenticated %}
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-4 mar">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{form}}
+                    <input type="hidden" value="{{img}}">
+            </div>
+            <div class="col-4 mar ">
+                <button type="submit" class="btn btn-success upload">Upload</button>
+            </div>
+            </form>
+            {% if flag%}
+            <div class="col-4 mar">
+                <form method="post" action="{% url 'download' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-success download">Download Model</button>
+                </form>
+            </div>
+            {% endif %}
+        </div>
+        {% if img %}
+        <div class="row no-gutters  position-relative nowat">
+            <div class="col mb-md-0 p-md-4">
+
+                <img src="{{img}}" class="w-50" alt="...">
+            </div>
+        </div>
+        {% endif %}
+        {% else %}
+        <h1 style="color:#6200eb;text-align:center;margin-top: 100px;">Please Sign up for using our services</h1>
+
+        {% endif %}
+
+
+
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+            crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
