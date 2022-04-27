@@ -1,0 +1,1 @@
+web: gunicorn MODEL3D.wsgi --log-file -
