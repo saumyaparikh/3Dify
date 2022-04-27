@@ -1,1 +1,1 @@
-web: gunicorn MODEL3D.wsgi --log-file -
+web: waitress-serve --port=$PORT Model3d.wsgi:application

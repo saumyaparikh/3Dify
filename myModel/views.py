@@ -50,7 +50,7 @@ def home(request):
 def download(request):
     form=StereoImgForm(request.POST, request.FILES)
     
-    imgurl="http://127.0.0.1:8000/"+img[1:]+".ply"
+    imgurl="https://app3dify.herokuapp.com/"+img[1:]+".ply"
     print(imgurl)
     #urllib.request.urlretrieve(imgurl, imgurl)   
     webbrowser.open(imgurl)
@@ -59,7 +59,7 @@ def download(request):
 def download2(request):
     dashimage = request.POST.get('dashimage',None)
     print("$$",dashimage)
-    imgurl="http://127.0.0.1:8000"+dashimage+".ply"
+    imgurl="https://app3dify.herokuapp.com/"+dashimage+".ply"
     print(imgurl)
     
     webbrowser.open(imgurl)
