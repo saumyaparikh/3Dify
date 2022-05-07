@@ -41,6 +41,6 @@ tifffile==2021.11.2
 toml==0.10.2
 tqdm==4.62.3
 tzdata==2021.5
-waitress==2.1.1
+# waitress==2.1.1
 Werkzeug==2.0.3
 whitenoise==6.0.0
